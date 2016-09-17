@@ -7,7 +7,7 @@
 
 #import "BLEPeripheralViewController.h"
 #import <CoreBluetooth/CoreBluetooth.h>
-#import "TransferService.h"
+#import "BLEuuid.h"
 
 @interface BLEPeripheralViewController () <CBPeripheralManagerDelegate, UITextViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextView       *textView;

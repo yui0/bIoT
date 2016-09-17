@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C8CBF50E17F2953B00A47CB8"
                BuildableName = "bIoT.app"
-               BlueprintName = "bIot"
+               BlueprintName = "bIoT"
                ReferencedContainer = "container:bIoT.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,7 +34,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C8CBF52F17F2953B00A47CB8"
                BuildableName = "bIoT.xctest"
-               BlueprintName = "bIotTests"
+               BlueprintName = "bIoTTests"
                ReferencedContainer = "container:bIoT.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8CBF50E17F2953B00A47CB8"
             BuildableName = "bIoT.app"
-            BlueprintName = "bIot"
+            BlueprintName = "bIoT"
             ReferencedContainer = "container:bIoT.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -67,7 +67,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8CBF50E17F2953B00A47CB8"
             BuildableName = "bIoT.app"
-            BlueprintName = "bIot"
+            BlueprintName = "bIoT"
             ReferencedContainer = "container:bIoT.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -86,7 +86,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8CBF50E17F2953B00A47CB8"
             BuildableName = "bIoT.app"
-            BlueprintName = "bIot"
+            BlueprintName = "bIoT"
             ReferencedContainer = "container:bIoT.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

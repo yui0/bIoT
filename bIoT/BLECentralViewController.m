@@ -7,7 +7,7 @@
 
 #import "BLECentralViewController.h"
 #import <CoreBluetooth/CoreBluetooth.h>
-#import "TransferService.h"
+#import "BLEuuid.h"
 
 @interface BLECentralViewController () <CBCentralManagerDelegate, CBPeripheralDelegate>
 
@@ -52,8 +52,7 @@
 
 - (void)scan
 {
-	[self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:TRANSFER_SERVICE_UUID]] options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
-
+	[self.centralManager scanForPeripheralsWithServices:/*@[[CBUUID UUIDWithString:TRANSFER_SERVICE_UUID]]*/nil options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
 	NSLog(@"Scanning started");
 }
 
@@ -63,56 +62,53 @@
  */
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
-    // Reject any where the value is above reasonable range
-    if (RSSI.integerValue > -15) {
-        return;
-    }
-        
-    // Reject if the signal strength is too low to be close enough (Close is around -22dB)
-    if (RSSI.integerValue < -35) {
-        return;
-    }
-    
-    NSLog(@"Discovered %@ at %@", peripheral.name, RSSI);
-    
-    // Ok, it's in range - have we already seen it?
-    if (self.discoveredPeripheral != peripheral) {
-        
-        // Save a local copy of the peripheral, so CoreBluetooth doesn't get rid of it
-        self.discoveredPeripheral = peripheral;
-        
-        // And connect
-        NSLog(@"Connecting to peripheral %@", peripheral);
-        [self.centralManager connectPeripheral:peripheral options:nil];
-    }
+/*	NSLog(@"Discovered %@ at %@...", peripheral.name, RSSI);
+
+	// Reject any where the value is above reasonable range
+	if (RSSI.integerValue > -15) return;
+
+	// Reject if the signal strength is too low to be close enough (Close is around -22dB)
+	if (RSSI.integerValue < -35) return;*/
+
+	NSLog(@"Discovered %@ at %@", peripheral.name, RSSI);
+
+	// Ok, it's in range - have we already seen it?
+	if (self.discoveredPeripheral != peripheral) {
+		// Save a local copy of the peripheral, so CoreBluetooth doesn't get rid of it
+		self.discoveredPeripheral = peripheral;
+
+		// And connect
+		NSLog(@"Connecting to peripheral %@", peripheral);
+		[self.centralManager connectPeripheral:peripheral options:nil];
+	}
 }
 
 /** If the connection fails for whatever reason, we need to deal with it.
  */
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
 {
-    NSLog(@"Failed to connect to %@. (%@)", peripheral, [error localizedDescription]);
-    [self cleanup];
+	NSLog(@"Failed to connect to %@. (%@)", peripheral, [error localizedDescription]);
+	[self cleanup];
 }
 
 /** We've connected to the peripheral, now we need to discover the services and characteristics to find the 'transfer' characteristic.
  */
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
-    NSLog(@"Peripheral Connected");
-    
-    // Stop scanning
-    [self.centralManager stopScan];
-    NSLog(@"Scanning stopped");
-    
-    // Clear the data that we may already have
-    [self.data setLength:0];
+	NSLog(@"Peripheral Connected");
 
-    // Make sure we get the discovery callbacks
-    peripheral.delegate = self;
-    
-    // Search only for services that match our UUID
-    [peripheral discoverServices:@[[CBUUID UUIDWithString:TRANSFER_SERVICE_UUID]]];
+	// Stop scanning
+	[self.centralManager stopScan];
+	NSLog(@"Scanning stopped");
+
+	// Clear the data that we may already have
+	[self.data setLength:0];
+
+	// Make sure we get the discovery callbacks
+	peripheral.delegate = self;
+
+	// Search only for services that match our UUID
+	[peripheral discoverServices:@[[CBUUID UUIDWithString:TRANSFER_SERVICE_UUID]]];
 }
 
 /** The Transfer Service was discovered
@@ -220,11 +216,11 @@
  */
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
 {
-    NSLog(@"Peripheral Disconnected");
-    self.discoveredPeripheral = nil;
-    
-    // We're disconnected, so start scanning again
-    [self scan];
+	NSLog(@"Peripheral Disconnected");
+	self.discoveredPeripheral = nil;
+
+	// We're disconnected, so start scanning again
+	[self scan];
 }
 
 /** Call this when things either go wrong, or you're done with the connection.
