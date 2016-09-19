@@ -10,5 +10,8 @@
 @property (nonatomic, strong) NSString *pwd;
 @property (nonatomic, strong) NSString *subject;
 @property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSString *content2;
+@property (nonatomic, strong) NSString *content3;
+@property (nonatomic, strong) NSString *content4;
 
 @end

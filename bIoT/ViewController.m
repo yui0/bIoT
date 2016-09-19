@@ -224,6 +224,35 @@
 		message.subject = [_defaults stringForKey:@"mail_subject"];
 		message.content = [_defaults stringForKey:@"mail_content"];
 
+		NSDate *date = [NSDate dateWithTimeIntervalSinceNow:[[NSTimeZone systemTimeZone] secondsFromGMT]];
+		NSCalendar *calendar = [NSCalendar currentCalendar];
+		NSDateComponents *dateComps = [calendar components:NSYearCalendarUnit |
+			NSMonthCalendarUnit  |
+			NSDayCalendarUnit    |
+			NSHourCalendarUnit   |
+			NSMinuteCalendarUnit |
+			NSSecondCalendarUnit
+			fromDate:date];
+		switch (dateComps.hour) {
+		case 11:
+		case 12:
+		case 13:
+		case 14:
+			message.content = [_defaults stringForKey:@"mail_content2"];
+			break;
+		case 16:
+		case 17:
+		case 18:
+		case 19:
+			message.content = [_defaults stringForKey:@"mail_content3"];
+			break;
+		case 20:
+			message.content = [_defaults stringForKey:@"mail_content4"];
+			break;
+		default:
+			message.content = [_defaults stringForKey:@"mail_content"];
+		}
+
 		[message send:^(SMTPMessage * message, double now, double total) {
 		} success:^(SMTPMessage * message) {
 			NSLog(@"response = %@", [[NSString alloc] initWithData:message.response encoding:NSUTF8StringEncoding]);
@@ -324,6 +353,9 @@
 
 		@"mail_subject"	: @"よびだし〜",
 		@"mail_content"	: @"ごはん〜ごはん〜",
+		@"mail_content2": @"おひる〜おひる〜",
+		@"mail_content3": @"ごはん〜ごはん〜",
+		@"mail_content4": @"おふろ〜おふろ〜",
 	};
 	[_defaults registerDefaults:dict];
 }

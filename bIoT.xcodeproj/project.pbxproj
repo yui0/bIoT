@@ -21,7 +21,6 @@
 		CE387D391D8AEE3100899FF1 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE387D381D8AEE3100899FF1 /* libcurl.a */; };
 		CE387D3B1D8AEE3900899FF1 /* curl in Resources */ = {isa = PBXBuildFile; fileRef = CE387D3A1D8AEE3900899FF1 /* curl */; };
 		CE387D3D1D8AEEA300899FF1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE387D3C1D8AEEA300899FF1 /* libz.tbd */; };
-		CE4ACEE21D880A87007953A2 /* BLECentralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4ACEDF1D880A87007953A2 /* BLECentralViewController.m */; };
 		CE4ACEE31D880A87007953A2 /* BLEPeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4ACEE11D880A87007953A2 /* BLEPeripheralViewController.m */; };
 		CE4ACEF01D8815B6007953A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4ACEEE1D8815B6007953A2 /* Main.storyboard */; };
 		CE54419C1D85A90F0039B8A9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE54419B1D85A90F0039B8A9 /* CoreBluetooth.framework */; };
@@ -64,8 +63,6 @@
 		CE387D381D8AEE3100899FF1 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcurl.a; sourceTree = "<group>"; };
 		CE387D3A1D8AEE3900899FF1 /* curl */ = {isa = PBXFileReference; lastKnownFileType = folder; path = curl; sourceTree = "<group>"; };
 		CE387D3C1D8AEEA300899FF1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		CE4ACEDE1D880A87007953A2 /* BLECentralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLECentralViewController.h; sourceTree = "<group>"; };
-		CE4ACEDF1D880A87007953A2 /* BLECentralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLECentralViewController.m; sourceTree = "<group>"; };
 		CE4ACEE01D880A87007953A2 /* BLEPeripheralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEPeripheralViewController.h; sourceTree = "<group>"; };
 		CE4ACEE11D880A87007953A2 /* BLEPeripheralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEPeripheralViewController.m; sourceTree = "<group>"; };
 		CE4ACEEF1D8815B6007953A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,8 +156,6 @@
 				C8CBF52717F2953B00A47CB8 /* ViewController.h */,
 				C8CBF52817F2953B00A47CB8 /* ViewController.m */,
 				CE682C811D8AB6100093BD8E /* BLEuuid.h */,
-				CE4ACEDE1D880A87007953A2 /* BLECentralViewController.h */,
-				CE4ACEDF1D880A87007953A2 /* BLECentralViewController.m */,
 				CE4ACEE01D880A87007953A2 /* BLEPeripheralViewController.h */,
 				CE4ACEE11D880A87007953A2 /* BLEPeripheralViewController.m */,
 				C8CBF52A17F2953B00A47CB8 /* Images.xcassets */,
@@ -300,7 +295,6 @@
 				C8CBF52917F2953B00A47CB8 /* ViewController.m in Sources */,
 				CE4ACEE31D880A87007953A2 /* BLEPeripheralViewController.m in Sources */,
 				CEAEA5881D8C024B0092A93F /* SettingForm.m in Sources */,
-				CE4ACEE21D880A87007953A2 /* BLECentralViewController.m in Sources */,
 				C8CBF52317F2953B00A47CB8 /* AppDelegate.m in Sources */,
 				CEAEA58F1D8C10DB0092A93F /* SettingViewController.m in Sources */,
 				CEAEA5851D8BFBC40092A93F /* FXForms.m in Sources */,
